@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace SQLiteTeste.Models
 {
-    public class WaterControl
+    public class FoodControl
     {
         public int Id { get; set; }
-        
-        public int Water { get; set; }
-        public int WaterDrank { get; set; }
+        public int FoodN { get; set; }
+        public int FoodR { get; set; }
+        public int FoodP { get; set; }
+        public int Chicken { get; set; }
         public DateTime Date { get; set; }
+
     }
 }

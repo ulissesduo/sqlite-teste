@@ -17,7 +17,33 @@ namespace SQLiteTeste.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.13");
 
-            modelBuilder.Entity("SQLiteTeste.Models.DogTreatment", b =>
+            modelBuilder.Entity("SQLiteTeste.Models.FoodControl", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Chicken")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("FoodN")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("FoodP")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("FoodR")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("tbFood", (string)null);
+                });
+
+            modelBuilder.Entity("SQLiteTeste.Models.WaterControl", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -26,21 +52,15 @@ namespace SQLiteTeste.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Food")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("MissingFood")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("MissingWater")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("Water")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("WaterDrank")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
-                    b.ToTable("tbDogTreatments", (string)null);
+                    b.ToTable("tbWater", (string)null);
                 });
 #pragma warning restore 612, 618
         }

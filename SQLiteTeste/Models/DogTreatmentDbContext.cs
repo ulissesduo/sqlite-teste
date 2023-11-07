@@ -11,14 +11,21 @@ namespace SQLiteTeste.Models
     public class DogTreatmentDbContext : DbContext
     {
         public DogTreatmentDbContext(DbContextOptions options) : base(options) { }
-        public DbSet<DogTreatment> tbDogTreatments { get; set; }
+        public DbSet<WaterControl> tbWater { get; set; }
+        public DbSet<FoodControl> tbFood { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<DogTreatment>().ToTable("tbDogTreatments");
-            
+            // Configure the first table for "tbWater"
+            modelBuilder.Entity<WaterControl>().ToTable("tbWater");
+
+            // Configure the second table for "tbFood"
+            modelBuilder.Entity<FoodControl>().ToTable("tbFood");
+
             foreach (var relationship in modelBuilder.Model.GetEntityTypes()
-                .SelectMany(e => e.GetForeignKeys())) 
+                .SelectMany(e => e.GetForeignKeys()))
+            {
                 relationship.DeleteBehavior = DeleteBehavior.ClientSetNull;
+            }
 
             base.OnModelCreating(modelBuilder);
         }
